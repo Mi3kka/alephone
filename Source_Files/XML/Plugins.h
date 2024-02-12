@@ -96,7 +96,7 @@ public:
 
 	void load_shapes_patches(bool opengl);
 
-	void disable(const boost::filesystem::path& path);
+	bool disable(const boost::filesystem::path& path);
 
 	iterator begin() { return m_plugins.begin(); }
 	iterator end() { return m_plugins.end(); }

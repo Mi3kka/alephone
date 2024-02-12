@@ -127,14 +127,16 @@ Plugins* Plugins::instance() {
 	return m_instance;
 }
 
-void Plugins::disable(const boost::filesystem::path& path) { //std path is not supported before mac os 10.15 so we are using boost path instead
+bool Plugins::disable(const boost::filesystem::path& path) { //std path is not supported before mac os 10.15 so we are using boost path instead
 	for (std::vector<Plugin>::iterator it = m_plugins.begin(); it != m_plugins.end(); ++it) {
 		if (it->directory.GetPath() == path) {
 			it->enabled = false;
 			m_validated = false;
-			return;
+			return true;
 		}
 	}
+
+	return false;
 }
 
 static void load_mmls(const Plugin& plugin) 
