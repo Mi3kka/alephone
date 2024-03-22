@@ -1,0 +1,1 @@
+To build this shim, you will need to put the Steamworks SDK "sdk" folder in this directory. You don't need to build this shim, which is unmodified from Icculus's git repository, or consequently get a Steamworks developer account, in order to build yourself a Steam-enabled Aleph One. You merely need to build the Steam targets in the main solution in VisualStudio/
