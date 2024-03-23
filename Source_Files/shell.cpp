@@ -122,6 +122,10 @@
 
 #include "shell_options.h"
 
+#ifdef HAVE_STEAM
+#include "steamshim_child.h"
+#endif
+
 // LP addition: whether or not the cheats are active
 // Defined in shell_misc.cpp
 extern bool CheatsActive;
@@ -464,6 +468,10 @@ void initialize_application(void)
 	
 	HTTPClient::Init();
 
+#ifdef HAVE_STEAM
+	STEAMSHIM_init();
+#endif
+
 	// Initialize everything
 	mytm_initialize();
 //	initialize_fonts();
@@ -499,6 +507,10 @@ void shutdown_application(void)
 #endif
 	TTF_Quit();
 	SDL_Quit();
+
+#ifdef HAVE_STEAM
+	STEAMSHIM_deinit();
+#endif
 }
 
 bool networking_available(void)
@@ -670,6 +682,10 @@ void main_event_loop(void)
 			{
 				process_event(event);
 			}
+
+#ifdef HAVE_STEAM
+			while (STEAMSHIM_pump()) {}
+#endif
 		}
 
 		execute_timer_tasks(machine_tick_count());
