@@ -1,0 +1,45 @@
+"AppBuild"
+{
+	"AppID" "2398450"
+	"Desc" "Classic Marathon build script"
+
+	"ContentRoot" "../"
+	"BuildOutput" "output/"
+
+	"Depots"
+	{
+		"2398451"
+		{
+			// Scenario data
+			"FileMapping"
+			{
+				"LocalPath" "data/Scenarios/Marathon/*"
+				"DepotPath" "."
+				"recursive" "1"
+			}
+
+			// Windows Steamshim
+			"FileMapping"
+			{
+				"LocalPath" "Steam/x64/Classic Marathon/Steamshim.exe"
+				"DepotPath" "."
+			}
+
+			// Windows Exe
+			"FileMapping"
+			{
+				"LocalPath" "VisualStudio/Release/Steam/Classic Marathon.exe"
+				"DepotPath" "."
+			}
+
+			// Windows Steam DLL  Because why would they include this for you?
+			"FileMapping"
+			{
+				"LocalPath" "Steam/sdk/redistributable_bin/win64/steam_api64.dll"
+				"DepotPath" "."
+			}
+
+			"FileExclusion" "*.git"
+		}
+	}
+}
