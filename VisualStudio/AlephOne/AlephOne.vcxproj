@@ -169,7 +169,7 @@
     <LinkIncremental>false</LinkIncremental>
     <TargetName>Classic Marathon</TargetName>
     <OutDir>$(SolutionDir)$(Platform)\Release\Steam\</OutDir>
-    <IntDir>$(Platform)\Release</IntDir>
+    <IntDir>$(Platform)\Release\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Marathon 2|x64'">
     <LinkIncremental>false</LinkIncremental>
