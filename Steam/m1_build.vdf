@@ -28,7 +28,7 @@
 			// Windows Exe
 			"FileMapping"
 			{
-				"LocalPath" "VisualStudio/Release/Steam/Classic Marathon.exe"
+				"LocalPath" "VisualStudio/x64/Release/Steam/Classic Marathon.exe"
 				"DepotPath" "."
 			}
 
