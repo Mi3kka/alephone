@@ -71,7 +71,7 @@ static char *getEnvVar(const char *key, char *buf, const size_t _buflen)
     const DWORD buflen = (DWORD) _buflen;
     const DWORD rc = GetEnvironmentVariableA(key, buf, buflen);
     /* rc doesn't count null char, hence "<". */
-    return ((rc > 0) && (rc < buflen)) ? NULL : buf;
+    return ((rc > 0) && (rc < buflen)) ? buf : NULL;
 } /* getEnvVar */
 
 #else
