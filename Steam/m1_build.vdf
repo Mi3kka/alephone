@@ -21,7 +21,7 @@
 			// Windows Steamshim
 			"FileMapping"
 			{
-				"LocalPath" "Steam/x64/Classic Marathon/Steamshim.exe"
+				"LocalPath" "VisualStudio/x64/Release/Steam/Steamshim.exe"
 				"DepotPath" "."
 			}
 
@@ -35,7 +35,7 @@
 			// Windows Steam DLL  Because why would they include this for you?
 			"FileMapping"
 			{
-				"LocalPath" "Steam/sdk/redistributable_bin/win64/steam_api64.dll"
+				"LocalPath" "VisualStudio/x64/Release/Steam/steam_api64.dll"
 				"DepotPath" "."
 			}
 

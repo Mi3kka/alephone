@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="steamshim_parent.cpp">
+    <ClCompile Include="..\..\Steam\steamshim_parent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

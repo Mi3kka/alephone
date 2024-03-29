@@ -8,55 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        submodules: true
-        
-    - name: Download Steamworks SDK
-      uses: nick-fields/retry@v3
-      with:
-        timeout_seconds: 30
-        max_attempts: 60
-        retry_wait_seconds: 60
-        retry_on: error
-        command: Invoke-WebRequest -Uri "https://partner.steamgames.com/downloads/steamworks_sdk_159.zip" -OutFile "Steam/steamworks_sdk.zip"
-            
-    - name: Install Steamworks SDK
-      run: |
-        cd Steam &&
-        Expand-Archive -Path "steamworks_sdk.zip" &&
-        Move-Item -Path "steamworks_sdk\sdk" -Destination "sdk"
-        
-    - name: Download Steamcmd
-      uses: nick-fields/retry@v3
-      with:
-        timeout_seconds: 30
-        max_attempts: 60
-        retry_wait_seconds: 60
-        retry_on: error
-        command: Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip" -OutFile "Steam/steamcmd.zip"
-        
-    - name: Install Steamcmd
-      continue-on-error: true #Steamcmd may throw error exit code while bootstrapping we can ignore, we will test later if everything is working fine
-      run: |
-        cd Steam &&
-        Expand-Archive -Path "steamcmd.zip" &&
-        ./steamcmd/steamcmd.exe +quit
-
-    - name: Restore config.vdf
-      env: 
-        CONFIG_VDF: ${{ secrets.CONFIG_VDF }}
-      run: echo $CONFIG_VDF | base64 --decode > Steam/steamcmd/config/config.vdf
-      shell: bash
-      
-    - name: Test Steam log in
-      run: ./Steam/steamcmd/steamcmd.exe +login alephone_upload +quit     
-        
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v2
-      
-    - name: Build SteamShim
-      run: |
-        cd Steam &&
-        msbuild SteamShim.sln
+        submodules: true  
         
     - name: Build Steam Marathon
       uses: ./.github/actions/build-windows
@@ -65,6 +17,17 @@ jobs:
         configuration: "Steam Marathon"
         vcpkg_installed_folder: installed-x64-windows
         
+    - name: Bootstrap Steamcmd
+      continue-on-error: true #Steamcmd may throw error exit code while bootstrapping that we can ignore, we will see on upload if everything is working fine
+      run: |
+        Copy-Item -Path "vcpkg/installed-x64-windows/x64-windows-static/tools/steamworks-sdk" -Destination "Steam/steamcmd" -Recurse &&
+        ./Steam/steamcmd/steamcmd.exe +quit
+
+    - name: Restore config.vdf
+      env: 
+        CONFIG_VDF: ${{ secrets.CONFIG_VDF }}
+      run: echo $CONFIG_VDF | base64 --decode > Steam/steamcmd/config/config.vdf
+      shell: bash
+      
     - name: Deploy to Steam
       run: ./Steam/steamcmd/steamcmd.exe +login alephone_upload +run_app_build ../m1_build.vdf +quit
-    
