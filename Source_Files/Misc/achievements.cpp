@@ -51,11 +51,6 @@ std::string Achievements::get_lua()
 	return lua;
 }
 
-void Achievements::invalidate()
-{
-
-}
-
 void Achievements::set(const std::string& key)
 {
 #ifdef HAVE_STEAM
