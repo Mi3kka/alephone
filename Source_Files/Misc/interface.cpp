@@ -821,6 +821,7 @@ bool join_networked_resume_game()
                                 // LP: getting the level scripting off of the map file
                                 // Being careful to carry over errors so that Pfhortran errors can be ignored
                                 short SavedType, SavedError = get_game_error(&SavedType);
+								LoadAchievementsLua();
 								LoadStatsLua();
                                 set_game_error(SavedType,SavedError);
                         }
@@ -835,8 +836,9 @@ bool join_networked_resume_game()
                         
                                 /* Set to the default map. */
                                 set_to_default_map();
-				
-				LoadStatsLua();
+
+								LoadAchievementsLua();
+								LoadStatsLua();
                         }
                         
                         // set the revert-game info to defaults (for full-auto saving on the local machine)
@@ -926,6 +928,7 @@ bool load_and_start_game(FileSpecifier& File)
 			{
 				LoadSoloLua();
 			}
+			LoadAchievementsLua();
 			LoadStatsLua();
 			set_game_error(SavedType,SavedError);
 			
