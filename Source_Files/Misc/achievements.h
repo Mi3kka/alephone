@@ -30,9 +30,6 @@ public:
 
 	std::string get_lua();
 	void set(const std::string& key);
-
-private:
-	uint32_t calculate_physics_checksum();
 };
 
 #endif
