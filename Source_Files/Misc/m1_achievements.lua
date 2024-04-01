@@ -12,7 +12,7 @@ function got_achievement(achievement)
 end
 
 function Triggers.init(restored)
-   if Level.replay or Level.map_checksum ~= 969 then
+   if Game.replay or Level.map_checksum ~= 969 then
       Triggers = {}
       return
    end
