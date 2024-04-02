@@ -1948,7 +1948,6 @@ void LoadSoloLua()
 
 void LoadAchievementsLua()
 {
-#ifdef HAVE_STEAM
 	if (states.count(_embedded_lua_script) ||
 		states.count(_lua_netscript) ||
 		states.count(_solo_lua_script))
@@ -1962,14 +1961,11 @@ void LoadAchievementsLua()
 	{
 		LoadLuaScript(lua.data(), lua.size(), _achievements_lua_script);
 	}
-#endif
 }
 
 void InvalidateAchievements()
 {
-#ifdef HAVE_STEAM
 	states.erase(_achievements_lua_script);
-#endif
 }
 
 void LoadStatsLua()
