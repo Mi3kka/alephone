@@ -1744,7 +1744,11 @@ static void display_about_dialog()
 	{
 		about_placer->dual_add(new w_static_text(expand_app_variables("$appName$ is powered by").c_str()), d);
 	}
+#ifdef HAVE_STEAM
+	about_placer->dual_add(new w_static_text(expand_app_variables("Aleph One $appVersion$ Steam ($appDate$)").c_str()), d);
+#else
 	about_placer->dual_add(new w_static_text(expand_app_variables("Aleph One $appVersion$ ($appDate$)").c_str()), d);
+#endif
 
 	about_placer->add(new w_spacer, true);
 
