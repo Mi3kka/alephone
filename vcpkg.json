@@ -12,7 +12,8 @@
          "name":"boost-property-tree"
       },
       {
-         "name":"boost-iostreams"
+         "name":"boost-iostreams",
+         "default-features":false
       },
       {
          "name":"boost-filesystem"
@@ -68,9 +69,9 @@
       {
          "name":"catch2"
       },
-	  {
-		 "name":"steamworks-sdk"
-	  }
+      {
+         "name":"steamworks-sdk"
+      }
    ],
    "overrides":[
       {
