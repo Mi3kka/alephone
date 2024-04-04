@@ -98,7 +98,7 @@ function Triggers.cleanup()
 
    if Level.index == 13 and not local_player._took_grenade_damage then
       got_achievement("ACH_LAWFUL_GOOD")
-   elseif Level.index == 26 and Level._initial_level == 0 then
+   elseif Level.index == 26 and Game._initial_level == 0 then
       got_achievement("ACH_VICTORY")
       if Game._min_difficulty == "total carnage" then
          got_achievement("ACH_TOTAL_VICTORY")
