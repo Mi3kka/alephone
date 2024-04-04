@@ -1951,7 +1951,11 @@ void LoadAchievementsLua()
 	if (states.count(_embedded_lua_script) ||
 		states.count(_lua_netscript) ||
 		states.count(_solo_lua_script))
-	{
+		{
+			logNote("achievements: invalidating due to other Lua (%i %i %i)",
+					states.count(_embedded_lua_script),
+					states.count(_lua_netscript),
+					states.count(_solo_lua_script));
 		return;
 	}
 	
@@ -1965,6 +1969,7 @@ void LoadAchievementsLua()
 
 void InvalidateAchievements()
 {
+	logNote("achievements: invalidating due to Lua command");
 	states.erase(_achievements_lua_script);
 }
 
