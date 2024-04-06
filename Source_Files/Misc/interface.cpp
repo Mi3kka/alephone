@@ -310,7 +310,7 @@ extern bool choose_saved_game_to_load(FileSpecifier& File);
 /* ---------------------- prototypes */
 static void display_credits(void);
 static void draw_button(short index, bool pressed);
-static void draw_powered_by_aleph_one();
+static void draw_powered_by_aleph_one(bool pressed);
 static void handle_replay(bool last_replay);
 static bool begin_game(short user, bool cheat);
 static void start_game(short user, bool changing_level);
@@ -1090,7 +1090,7 @@ void update_interface_display(
 		{
 			draw_button(game_state.highlighted_main_menu_item + START_OF_MENU_INTERFACE_RECTS - 1, true);
 		}
-		draw_powered_by_aleph_one();
+		draw_powered_by_aleph_one(game_state.highlighted_main_menu_item == iAbout);
 	}
 
 	draw_intro_screen();
@@ -1247,30 +1247,37 @@ bool idle_game_state(uint32 time)
 extern SDL_Surface *draw_surface;	// from screen_drawing.cpp
 //void draw_intro_screen(void);		// from screen.cpp
 
-static SDL_Surface *powered_by_alephone_surface = 0;
+static SDL_Surface *powered_by_alephone_surface[] = {nullptr, nullptr};
 #include "powered_by_alephone.h"
+#include "powered_by_alephone_h.h"
 
 extern void set_about_alephone_rect(int width, int height);
 
-static void draw_powered_by_aleph_one()
+static void draw_powered_by_aleph_one(bool pressed)
 {
-	if (!powered_by_alephone_surface)
+	if (!powered_by_alephone_surface[0])
 	{
 		SDL_RWops *rw = SDL_RWFromConstMem(powered_by_alephone_bmp, sizeof(powered_by_alephone_bmp));
-		powered_by_alephone_surface = SDL_LoadBMP_RW(rw, 0);
-		SDL_FreeRW(rw);
+		powered_by_alephone_surface[0] = SDL_LoadBMP_RW(rw, 0);
+		SDL_RWclose(rw);
 
-		set_about_alephone_rect(powered_by_alephone_surface->w, powered_by_alephone_surface->h);
+		set_about_alephone_rect(powered_by_alephone_surface[0]->w, powered_by_alephone_surface[0]->h);
+
+		rw = SDL_RWFromConstMem(powered_by_alephone_h_bmp, sizeof(powered_by_alephone_h_bmp));
+		powered_by_alephone_surface[1] = SDL_LoadBMP_RW(rw, 0);
+		SDL_RWclose(rw);
 	}
 
+	auto i = pressed ? 1 : 0;
+
 	SDL_Rect rect;
-	rect.x = 640 - powered_by_alephone_surface->w;
-	rect.y = 480 - powered_by_alephone_surface->h;
-	rect.w = powered_by_alephone_surface->w;
-	rect.h = powered_by_alephone_surface->h;
-	
+	rect.x = 640 - powered_by_alephone_surface[i]->w;
+	rect.y = 480 - powered_by_alephone_surface[i]->h;
+	rect.w = powered_by_alephone_surface[i]->w;
+	rect.h = powered_by_alephone_surface[i]->h;
+
 	_set_port_to_intro();
-	SDL_BlitSurface(powered_by_alephone_surface, NULL, draw_surface, &rect);
+	SDL_BlitSurface(powered_by_alephone_surface[i], NULL, draw_surface, &rect);
 	_restore_port();
 }
 
@@ -1295,7 +1302,7 @@ void display_main_menu(
 		Music::instance()->RestartIntroMusic();
 	}
 
-	draw_powered_by_aleph_one();
+	draw_powered_by_aleph_one(false);
 
 	game_state.main_menu_display_count++;
 }
@@ -1969,7 +1976,11 @@ static void draw_button(
 	short index, 
 	bool pressed)
 {
-	if (index == _about_alephone_rect) return;
+	if (index == _about_alephone_rect)
+	{
+		draw_powered_by_aleph_one(pressed);
+		return;
+	}
 
 	screen_rectangle *screen_rect= get_interface_rectangle(index);
 	short pict_resource_number= MAIN_MENU_BASE + pressed;
