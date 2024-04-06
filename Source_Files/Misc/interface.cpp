@@ -1069,8 +1069,10 @@ void draw_menu_button_for_command(
 	
 	/* Draw it initially depressed.. */
 	draw_button(rectangle_index, true);
+	draw_intro_screen();
 	sleep_for_machine_ticks(MACHINE_TICKS_PER_SECOND / 12);
 	draw_button(rectangle_index, false);
+	draw_intro_screen();
 }
 
 void update_interface_display(
@@ -1085,12 +1087,14 @@ void update_interface_display(
 
 	if (game_state.state == _display_main_menu)
 	{
-		draw_powered_by_aleph_one();
 		if (game_state.highlighted_main_menu_item >= 0)
 		{
 			draw_button(game_state.highlighted_main_menu_item + START_OF_MENU_INTERFACE_RECTS - 1, true);
 		}
+		draw_powered_by_aleph_one();
 	}
+
+	draw_intro_screen();
 }
 
 extern bool first_frame_rendered;
@@ -1260,9 +1264,6 @@ static void draw_powered_by_aleph_one()
 	_set_port_to_intro();
 	SDL_BlitSurface(powered_by_alephone_surface, NULL, draw_surface, &rect);
 	_restore_port();
-
-	// have to reblit :(
-	draw_intro_screen();
 }
 
 void display_main_menu(
@@ -2663,6 +2664,7 @@ static void display_screen(
 			full_fade(_start_cinematic_fade_in, current_picture_clut);
 
 			draw_full_screen_pict_resource_from_images(pict_resource_number);
+			draw_intro_screen();
 			picture_drawn= true;
 
 			assert(current_picture_clut);	
@@ -2723,6 +2725,7 @@ static void handle_interface_menu_screen_click(
 
 			/* Draw it initially depressed.. */
 			draw_button(index, last_state);
+			draw_intro_screen();
 		
 			bool mouse_down = true;
 			while (mouse_down)
@@ -2759,13 +2762,24 @@ static void handle_interface_menu_screen_click(
 					if (state != last_state)
 					{
 						draw_button(index, state);
+						draw_intro_screen();
 						last_state = state;
+					}
+				}
+				else
+				{
+					static auto last_redraw = 0;
+					if (machine_tick_count() > last_redraw + TICKS_PER_SECOND / 30)
+					{
+						draw_intro_screen();
+						last_redraw = machine_tick_count();
 					}
 				}
 			}
 
 			/* Draw it unpressed.. */
 			draw_button(index, false);
+			draw_intro_screen();
 			
 			if(last_state)
 			{
@@ -2822,6 +2836,7 @@ static void try_and_display_chapter_screen(
 
 			/* Draw the picture */
 			draw_full_screen_pict_resource_from_scenario(pict_resource_number);
+			draw_intro_screen();
 
 			std::shared_ptr<SoundPlayer> soundPlayer;
 			if (get_sound_resource_from_scenario(pict_resource_number,SoundRsrc))

@@ -702,6 +702,15 @@ void main_event_loop(void)
 				sleep_for_machine_ticks(1);
 			}
 		}
+		else if (game_state != _game_in_progress)
+		{
+			static auto last_redraw = 0;
+			if (machine_tick_count() > last_redraw + TICKS_PER_SECOND / 30)
+			{
+				update_game_window();
+				last_redraw = machine_tick_count();
+			}
+		}
 	}
 }
 
