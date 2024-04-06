@@ -1041,7 +1041,6 @@ void pause_game(
 	stop_fade();
 	if (!OGL_IsActive() || !(TEST_FLAG(Get_OGL_ConfigureData().Flags,OGL_Flag_Fader)))
 		set_fade_effect(NONE);
-	darken_world_window();
 	set_keyboard_controller_status(false);
 	show_cursor();
 }
@@ -1227,6 +1226,15 @@ bool idle_game_state(uint32 time)
 				first_frame_rendered = ticks_elapsed > 0;
 			}
 		}
+		else
+		{
+			static auto last_redraw = 0;
+			if (machine_tick_count() > last_redraw + MACHINE_TICKS_PER_SECOND / 30)
+			{
+				last_redraw = machine_tick_count();
+				render_screen(ticks_elapsed);
+			}
+		}
 		
 		return theUpdateResult.first;
 	} else {
@@ -1401,8 +1409,8 @@ void do_menu_item_command(
 						if(really_wants_to_quit)
 						{
 							// Rhys Hill fix for crash when quitting OpenGL
-							if (!OGL_IsActive())
-								render_screen(0); /* Get rid of hole.. */
+// 							if (!OGL_IsActive())
+//								render_screen(0); /* Get rid of hole.. */
 							set_game_state(_close_game);
 						}
 					}
