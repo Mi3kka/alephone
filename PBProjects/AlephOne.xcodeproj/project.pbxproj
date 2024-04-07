@@ -1413,6 +1413,22 @@
 		AEC3C86C09AD68AC003258E4 /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEC6C89B0879A5DE0055EC57 /* Console.cpp */; };
 		AEC3C86D09AD68AC003258E4 /* ImageLoader_Shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE791CD60968E16600350190 /* ImageLoader_Shared.cpp */; };
 		AEC3C86E09AD68AC003258E4 /* OGL_LoadScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEF5025E09A825E2004B0179 /* OGL_LoadScreen.cpp */; };
+		AED959B22BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959AF2BC23591008EFCA2 /* powered_by_alephone_h.h */; };
+		AED959B32BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959AF2BC23591008EFCA2 /* powered_by_alephone_h.h */; };
+		AED959B42BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959AF2BC23591008EFCA2 /* powered_by_alephone_h.h */; };
+		AED959B52BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959AF2BC23591008EFCA2 /* powered_by_alephone_h.h */; };
+		AED959B62BC23591008EFCA2 /* m1_achievements.lua in Resources */ = {isa = PBXBuildFile; fileRef = AED959B02BC23591008EFCA2 /* m1_achievements.lua */; };
+		AED959B72BC23591008EFCA2 /* m1_achievements.lua in Resources */ = {isa = PBXBuildFile; fileRef = AED959B02BC23591008EFCA2 /* m1_achievements.lua */; };
+		AED959B82BC23591008EFCA2 /* m1_achievements.lua in Resources */ = {isa = PBXBuildFile; fileRef = AED959B02BC23591008EFCA2 /* m1_achievements.lua */; };
+		AED959B92BC23591008EFCA2 /* m1_achievements.lua in Resources */ = {isa = PBXBuildFile; fileRef = AED959B02BC23591008EFCA2 /* m1_achievements.lua */; };
+		AED959BA2BC23591008EFCA2 /* achievements.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959B12BC23591008EFCA2 /* achievements.h */; };
+		AED959BB2BC23591008EFCA2 /* achievements.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959B12BC23591008EFCA2 /* achievements.h */; };
+		AED959BC2BC23591008EFCA2 /* achievements.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959B12BC23591008EFCA2 /* achievements.h */; };
+		AED959BD2BC23591008EFCA2 /* achievements.h in Headers */ = {isa = PBXBuildFile; fileRef = AED959B12BC23591008EFCA2 /* achievements.h */; };
+		AED959BF2BC235B2008EFCA2 /* achievements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AED959BE2BC235B2008EFCA2 /* achievements.cpp */; };
+		AED959C02BC235B2008EFCA2 /* achievements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AED959BE2BC235B2008EFCA2 /* achievements.cpp */; };
+		AED959C12BC235B2008EFCA2 /* achievements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AED959BE2BC235B2008EFCA2 /* achievements.cpp */; };
+		AED959C22BC235B2008EFCA2 /* achievements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AED959BE2BC235B2008EFCA2 /* achievements.cpp */; };
 		AEDCB5CD0D4ADB86004CB40E /* lua_monsters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEDCB5CB0D4ADB86004CB40E /* lua_monsters.cpp */; };
 		AEDCB5DC0D4AEC4D004CB40E /* lua_projectiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEDCB5DA0D4AEC4D004CB40E /* lua_projectiles.cpp */; };
 		AEDF1A151416FE2200183689 /* HTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = AEDF1A121416FE2200183689 /* HTTP.h */; };
@@ -2049,6 +2065,10 @@
 		AEC3C89609AD68AE003258E4 /* Aleph One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aleph One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC6C89B0879A5DE0055EC57 /* Console.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Console.cpp; path = ../Source_Files/Misc/Console.cpp; sourceTree = SOURCE_ROOT; };
 		AEC6C89E0879A6020055EC57 /* Console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Console.h; path = ../Source_Files/Misc/Console.h; sourceTree = SOURCE_ROOT; };
+		AED959AF2BC23591008EFCA2 /* powered_by_alephone_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = powered_by_alephone_h.h; path = ../Source_Files/Misc/powered_by_alephone_h.h; sourceTree = "<group>"; };
+		AED959B02BC23591008EFCA2 /* m1_achievements.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = m1_achievements.lua; path = ../Source_Files/Misc/m1_achievements.lua; sourceTree = "<group>"; };
+		AED959B12BC23591008EFCA2 /* achievements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = achievements.h; path = ../Source_Files/Misc/achievements.h; sourceTree = "<group>"; };
+		AED959BE2BC235B2008EFCA2 /* achievements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = achievements.cpp; path = ../Source_Files/Misc/achievements.cpp; sourceTree = "<group>"; };
 		AEDCB5CB0D4ADB86004CB40E /* lua_monsters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_monsters.cpp; sourceTree = "<group>"; };
 		AEDCB5CC0D4ADB86004CB40E /* lua_monsters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua_monsters.h; sourceTree = "<group>"; };
 		AEDCB5DA0D4AEC4D004CB40E /* lua_projectiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_projectiles.cpp; sourceTree = "<group>"; };
@@ -2741,6 +2761,7 @@
 			children = (
 				F522144F0136C0C401000001 /* Headers */,
 				F5CC94290240DB8801A80001 /* SDL */,
+				AED959BE2BC235B2008EFCA2 /* achievements.cpp */,
 				F5A00022023FDA1601A80001 /* ActionQueues.cpp */,
 				EFEF1AC504AF552D00C3A19D /* CircularByteBuffer.cpp */,
 				AEC6C89B0879A5DE0055EC57 /* Console.cpp */,
@@ -2763,6 +2784,7 @@
 		F522144F0136C0C401000001 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				AED959B12BC23591008EFCA2 /* achievements.h */,
 				C13C71E61B3FB4C500F1188D /* DefaultStringSets.h */,
 				276BECFE1A846FD900AE52F4 /* AlephSansMono-Bold.h */,
 				276BED2B1A8470A900AE52F4 /* binders.h */,
@@ -2770,8 +2792,10 @@
 				276BED001A846FD900AE52F4 /* CourierPrimeBold.h */,
 				276BED011A846FD900AE52F4 /* CourierPrimeBoldItalic.h */,
 				276BED021A846FD900AE52F4 /* CourierPrimeItalic.h */,
+				AED959B02BC23591008EFCA2 /* m1_achievements.lua */,
 				276BED2C1A8470A900AE52F4 /* PlayerImage_sdl.h */,
 				276BED211A84701E00AE52F4 /* powered_by_alephone.h */,
+				AED959AF2BC23591008EFCA2 /* powered_by_alephone_h.h */,
 				276BED031A846FD900AE52F4 /* ProFontAO.h */,
 				276BED1C1A846FF600AE52F4 /* VecOps.h */,
 				AE48F3551421900900051D61 /* Statistics.h */,
@@ -3379,6 +3403,7 @@
 				AE505B9E141D45E600915344 /* RenderVisTree.h in Headers */,
 				AE505B9F141D45E600915344 /* scottish_textures.h in Headers */,
 				AE505BA0141D45E600915344 /* shape_definitions.h in Headers */,
+				AED959BC2BC23591008EFCA2 /* achievements.h in Headers */,
 				278E0C791AA3CD4500FA93B7 /* WadImageCache.h in Headers */,
 				AE505BA1141D45E600915344 /* shape_descriptors.h in Headers */,
 				AE505BA2141D45E600915344 /* textures.h in Headers */,
@@ -3392,6 +3417,7 @@
 				AE505BA8141D45E600915344 /* HUDRenderer.h in Headers */,
 				AE505BA9141D45E600915344 /* HUDRenderer_OGL.h in Headers */,
 				AE505BAA141D45E600915344 /* HUDRenderer_SW.h in Headers */,
+				AED959B42BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */,
 				2710CC671B8F94FC00CE2EAE /* OGL_FBO.h in Headers */,
 				AE505BAB141D45E600915344 /* images.h in Headers */,
 				AE505BAC141D45E600915344 /* motion_sensor.h in Headers */,
@@ -3591,6 +3617,7 @@
 				AEB4A13E14296CAE00537AE7 /* RenderVisTree.h in Headers */,
 				AEB4A13F14296CAE00537AE7 /* scottish_textures.h in Headers */,
 				AEB4A14014296CAE00537AE7 /* shape_definitions.h in Headers */,
+				AED959BD2BC23591008EFCA2 /* achievements.h in Headers */,
 				278E0C7A1AA3CD4500FA93B7 /* WadImageCache.h in Headers */,
 				AEB4A14114296CAE00537AE7 /* shape_descriptors.h in Headers */,
 				AEB4A14214296CAE00537AE7 /* textures.h in Headers */,
@@ -3604,6 +3631,7 @@
 				AEB4A14814296CAE00537AE7 /* HUDRenderer.h in Headers */,
 				AEB4A14914296CAE00537AE7 /* HUDRenderer_OGL.h in Headers */,
 				AEB4A14A14296CAE00537AE7 /* HUDRenderer_SW.h in Headers */,
+				AED959B52BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */,
 				2710CC681B8F94FC00CE2EAE /* OGL_FBO.h in Headers */,
 				AEB4A14B14296CAE00537AE7 /* images.h in Headers */,
 				AEB4A14C14296CAE00537AE7 /* motion_sensor.h in Headers */,
@@ -3803,6 +3831,7 @@
 				AEC3C77209AD68AC003258E4 /* scottish_textures.h in Headers */,
 				AEC3C77309AD68AC003258E4 /* shape_definitions.h in Headers */,
 				276BED141A846FD900AE52F4 /* CourierPrimeItalic.h in Headers */,
+				AED959BA2BC23591008EFCA2 /* achievements.h in Headers */,
 				AEC3C77409AD68AC003258E4 /* shape_descriptors.h in Headers */,
 				AEC3C77609AD68AC003258E4 /* textures.h in Headers */,
 				AEC3C77709AD68AC003258E4 /* ChaseCam.h in Headers */,
@@ -3816,6 +3845,7 @@
 				276BED0C1A846FD900AE52F4 /* CourierPrimeBold.h in Headers */,
 				AEC3C77E09AD68AC003258E4 /* HUDRenderer_OGL.h in Headers */,
 				AEC3C77F09AD68AC003258E4 /* HUDRenderer_SW.h in Headers */,
+				AED959B22BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */,
 				AEC3C78009AD68AC003258E4 /* images.h in Headers */,
 				AEC3C78209AD68AC003258E4 /* motion_sensor.h in Headers */,
 				AEC3C78309AD68AC003258E4 /* overhead_map.h in Headers */,
@@ -4015,6 +4045,7 @@
 				AEFD864C13EB84CF00C1E687 /* RenderVisTree.h in Headers */,
 				AEFD864D13EB84CF00C1E687 /* scottish_textures.h in Headers */,
 				AEFD864E13EB84CF00C1E687 /* shape_definitions.h in Headers */,
+				AED959BB2BC23591008EFCA2 /* achievements.h in Headers */,
 				278E0C781AA3CD4500FA93B7 /* WadImageCache.h in Headers */,
 				AEFD864F13EB84CF00C1E687 /* shape_descriptors.h in Headers */,
 				AEFD865013EB84CF00C1E687 /* textures.h in Headers */,
@@ -4028,6 +4059,7 @@
 				AEFD865613EB84CF00C1E687 /* HUDRenderer.h in Headers */,
 				AEFD865713EB84CF00C1E687 /* HUDRenderer_OGL.h in Headers */,
 				AEFD865813EB84CF00C1E687 /* HUDRenderer_SW.h in Headers */,
+				AED959B32BC23591008EFCA2 /* powered_by_alephone_h.h in Headers */,
 				2710CC661B8F94FC00CE2EAE /* OGL_FBO.h in Headers */,
 				AEFD865913EB84CF00C1E687 /* images.h in Headers */,
 				AEFD865A13EB84CF00C1E687 /* motion_sensor.h in Headers */,
@@ -4258,6 +4290,7 @@
 				AE505C03141D45E600915344 /* ShapesIcon.icns in Resources */,
 				AE505C04141D45E600915344 /* SoundsIcon.icns in Resources */,
 				AE505C05141D45E600915344 /* FilmIcon.icns in Resources */,
+				AED959B82BC23591008EFCA2 /* m1_achievements.lua in Resources */,
 				AE505C06141D45E600915344 /* MapIcon.icns in Resources */,
 				AE505C07141D45E600915344 /* MMLIcon.icns in Resources */,
 				AE505C08141D45E600915344 /* MusakIcon.icns in Resources */,
@@ -4276,6 +4309,7 @@
 				AEB4A1A414296CAE00537AE7 /* ShapesIcon.icns in Resources */,
 				AEB4A1A514296CAE00537AE7 /* SoundsIcon.icns in Resources */,
 				AEB4A1A614296CAE00537AE7 /* FilmIcon.icns in Resources */,
+				AED959B92BC23591008EFCA2 /* m1_achievements.lua in Resources */,
 				AEB4A1A714296CAE00537AE7 /* MapIcon.icns in Resources */,
 				AEB4A1A814296CAE00537AE7 /* MMLIcon.icns in Resources */,
 				AEB4A1A914296CAE00537AE7 /* MusakIcon.icns in Resources */,
@@ -4294,6 +4328,7 @@
 				AEC3C7C409AD68AC003258E4 /* AlephOne.icns in Resources */,
 				AEC3C7C509AD68AC003258E4 /* ImagesIcon.icns in Resources */,
 				AEC3C7C609AD68AC003258E4 /* ShapesIcon.icns in Resources */,
+				AED959B62BC23591008EFCA2 /* m1_achievements.lua in Resources */,
 				AEC3C7C709AD68AC003258E4 /* SoundsIcon.icns in Resources */,
 				AEC3C7C809AD68AC003258E4 /* FilmIcon.icns in Resources */,
 				AEC3C7C909AD68AC003258E4 /* MapIcon.icns in Resources */,
@@ -4312,6 +4347,7 @@
 				AEFD86B213EB84CF00C1E687 /* ShapesIcon.icns in Resources */,
 				AEFD86B313EB84CF00C1E687 /* SoundsIcon.icns in Resources */,
 				AEFD86B413EB84CF00C1E687 /* FilmIcon.icns in Resources */,
+				AED959B72BC23591008EFCA2 /* m1_achievements.lua in Resources */,
 				AEFD86B513EB84CF00C1E687 /* MapIcon.icns in Resources */,
 				AEFD86B613EB84CF00C1E687 /* MMLIcon.icns in Resources */,
 				AEFD86B713EB84CF00C1E687 /* MusakIcon.icns in Resources */,
@@ -4446,6 +4482,7 @@
 				AE72AA92269A7E7B001F7675 /* PortForward.cpp in Sources */,
 				AE505C12141D45E600915344 /* cscluts_sdl.cpp in Sources */,
 				AE505C13141D45E600915344 /* csmisc_sdl.cpp in Sources */,
+				AED959C12BC235B2008EFCA2 /* achievements.cpp in Sources */,
 				AE505C17141D45E600915344 /* game_errors.cpp in Sources */,
 				AE505C18141D45E600915344 /* interface.cpp in Sources */,
 				AE505C19141D45E600915344 /* PlayerName.cpp in Sources */,
@@ -4672,6 +4709,7 @@
 				AE72AA93269A7E7B001F7675 /* PortForward.cpp in Sources */,
 				AEB4A1B314296CAE00537AE7 /* cscluts_sdl.cpp in Sources */,
 				AEB4A1B414296CAE00537AE7 /* csmisc_sdl.cpp in Sources */,
+				AED959C22BC235B2008EFCA2 /* achievements.cpp in Sources */,
 				AEB4A1B814296CAE00537AE7 /* game_errors.cpp in Sources */,
 				AEB4A1B914296CAE00537AE7 /* interface.cpp in Sources */,
 				AEB4A1BA14296CAE00537AE7 /* PlayerName.cpp in Sources */,
@@ -4898,6 +4936,7 @@
 				AE72AA90269A7E7B001F7675 /* PortForward.cpp in Sources */,
 				AEC3C7D309AD68AC003258E4 /* cscluts_sdl.cpp in Sources */,
 				AEC3C7D409AD68AC003258E4 /* csmisc_sdl.cpp in Sources */,
+				AED959BF2BC235B2008EFCA2 /* achievements.cpp in Sources */,
 				AEC3C7D909AD68AC003258E4 /* game_errors.cpp in Sources */,
 				AEC3C7DB09AD68AC003258E4 /* interface.cpp in Sources */,
 				AEC3C7DC09AD68AC003258E4 /* PlayerName.cpp in Sources */,
@@ -5124,6 +5163,7 @@
 				AE72AA91269A7E7B001F7675 /* PortForward.cpp in Sources */,
 				AEFD86BF13EB84CF00C1E687 /* cscluts_sdl.cpp in Sources */,
 				AEFD86C013EB84CF00C1E687 /* csmisc_sdl.cpp in Sources */,
+				AED959C02BC235B2008EFCA2 /* achievements.cpp in Sources */,
 				AEFD86C413EB84CF00C1E687 /* game_errors.cpp in Sources */,
 				AEFD86C513EB84CF00C1E687 /* interface.cpp in Sources */,
 				AEFD86C613EB84CF00C1E687 /* PlayerName.cpp in Sources */,
