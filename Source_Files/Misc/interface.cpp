@@ -1229,7 +1229,7 @@ bool idle_game_state(uint32 time)
 		else
 		{
 			static auto last_redraw = 0;
-			if (machine_tick_count() > last_redraw + MACHINE_TICKS_PER_SECOND / 30)
+			if (current_player && machine_tick_count() > last_redraw + MACHINE_TICKS_PER_SECOND / 30)
 			{
 				last_redraw = machine_tick_count();
 				render_screen(ticks_elapsed);
