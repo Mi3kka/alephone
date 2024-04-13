@@ -268,7 +268,7 @@ typedef enum ShimEvent
     SHIMEVENT_GETSTATI,
     SHIMEVENT_SETSTATF,
     SHIMEVENT_GETSTATF,
-    SHIMEVENT_ISOVERLAYACTIVED
+    SHIMEVENT_ISOVERLAYACTIVATED
 } ShimEvent;
 
 static bool write1ByteCmd(PipeType fd, const uint8 b1)
@@ -311,7 +311,7 @@ static inline bool writeStatsStored(PipeType fd, const bool okay)
 static inline bool writeOverlayActivated(PipeType fd, const bool okay)
 {
     dbgpipe("Parent sending SHIMEVENT_ISOVERLAYACTIVE(%sokay).\n", okay ? "" : "!");
-    return write2ByteCmd(fd, SHIMEVENT_ISOVERLAYACTIVED, okay ? 1 : 0);
+    return write2ByteCmd(fd, SHIMEVENT_ISOVERLAYACTIVATED, okay ? 1 : 0);
 } // writeOverlayActivated
 
 static bool writeAchievementSet(PipeType fd, const char *name, const bool enable, const bool okay)

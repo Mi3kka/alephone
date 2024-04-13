@@ -687,7 +687,7 @@ void main_event_loop(void)
 #ifdef HAVE_STEAM
 			while (auto steam_event = STEAMSHIM_pump()) {
 				switch (steam_event->type) {
-					case SHIMEVENT_ISOVERLAYACTIVED:
+					case SHIMEVENT_ISOVERLAYACTIVATED:
 						if (steam_event->okay && get_game_state() == _game_in_progress && !game_is_networked)
 						{
 							pause_game();
