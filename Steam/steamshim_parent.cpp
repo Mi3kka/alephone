@@ -236,7 +236,7 @@ public:
     SteamBridge(PipeType _fd);
 	STEAM_CALLBACK(SteamBridge, OnUserStatsReceived, UserStatsReceived_t, m_CallbackUserStatsReceived);
 	STEAM_CALLBACK(SteamBridge, OnUserStatsStored, UserStatsStored_t, m_CallbackUserStatsStored);
-
+    STEAM_CALLBACK(SteamBridge, OnOverlayActivated, GameOverlayActivated_t, m_CallbackOverlayActivated);
 private:
     PipeType fd;
 };
@@ -268,6 +268,7 @@ typedef enum ShimEvent
     SHIMEVENT_GETSTATI,
     SHIMEVENT_SETSTATF,
     SHIMEVENT_GETSTATF,
+    SHIMEVENT_ISOVERLAYACTIVED
 } ShimEvent;
 
 static bool write1ByteCmd(PipeType fd, const uint8 b1)
@@ -306,6 +307,12 @@ static inline bool writeStatsStored(PipeType fd, const bool okay)
     dbgpipe("Parent sending SHIMEVENT_STATSSTORED(%sokay).\n", okay ? "" : "!");
     return write2ByteCmd(fd, SHIMEVENT_STATSSTORED, okay ? 1 : 0);
 } // writeStatsStored
+
+static inline bool writeOverlayActivated(PipeType fd, const bool okay)
+{
+    dbgpipe("Parent sending SHIMEVENT_ISOVERLAYACTIVE(%sokay).\n", okay ? "" : "!");
+    return write2ByteCmd(fd, SHIMEVENT_ISOVERLAYACTIVED, okay ? 1 : 0);
+} // writeOverlayActivated
 
 static bool writeAchievementSet(PipeType fd, const char *name, const bool enable, const bool okay)
 {
@@ -385,6 +392,7 @@ static inline bool writeGetStatF(PipeType fd, const char *name, const float val,
 SteamBridge::SteamBridge(PipeType _fd)
     : m_CallbackUserStatsReceived( this, &SteamBridge::OnUserStatsReceived )
 	, m_CallbackUserStatsStored( this, &SteamBridge::OnUserStatsStored )
+    , m_CallbackOverlayActivated( this, &SteamBridge::OnOverlayActivated )
 	, fd(_fd)
 {
 } // SteamBridge::SteamBridge
@@ -401,6 +409,12 @@ void SteamBridge::OnUserStatsStored(UserStatsStored_t *pCallback)
 	if (GAppID != pCallback->m_nGameID) return;
     writeStatsStored(fd, pCallback->m_eResult == k_EResultOK);
 } // SteamBridge::OnUserStatsStored
+
+void SteamBridge::OnOverlayActivated(GameOverlayActivated_t *pCallback)
+{
+    if (GAppID != pCallback->m_nAppID) return;
+    writeOverlayActivated(fd, pCallback->m_bActive);
+} // SteamBridge::OnOverlayActivated
 
 
 static bool processCommand(const uint8 *buf, unsigned int buflen, PipeType fd)
