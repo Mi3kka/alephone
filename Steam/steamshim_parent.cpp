@@ -635,7 +635,11 @@ static int mainline(void)
     else if (!setEnvironmentVars(pipeChildRead, pipeChildWrite))
         fail("Failed to set environment variables");
     else if (!launchChild(&childPid)){
+#ifdef _WIN32
         int error = GetLastError();
+#else
+        int error = errno;
+#endif
         char str[100];
         sprintf(str, "Failed to launch application (%d)", error);
        // fail("Failed to launch application");
