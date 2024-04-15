@@ -682,6 +682,9 @@
 		AE120D5E2BC77645001873DD /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9975092661D6F400DDD370 /* AudioUnit.framework */; };
 		AE120D672BC776CE001873DD /* steamshim_child.c in Sources */ = {isa = PBXBuildFile; fileRef = AE120D662BC776CE001873DD /* steamshim_child.c */; };
 		AE120D692BC776E7001873DD /* steamshim_child.h in Headers */ = {isa = PBXBuildFile; fileRef = AE120D682BC776E7001873DD /* steamshim_child.h */; };
+		AE120D8D2BCCBECF001873DD /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE120B942BC77447001873DD /* libsteam_api.dylib */; };
+		AE120D8E2BCCBED3001873DD /* steamshim_parent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE120B8F2BC76745001873DD /* steamshim_parent.cpp */; };
+		AE120D8F2BCCBF51001873DD /* libsteam_api.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE120B942BC77447001873DD /* libsteam_api.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AE171BCD2A59F6EE00A4D3FC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE171BCC2A59F6EE00A4D3FC /* main.cpp */; };
 		AE171BCE2A59F6EE00A4D3FC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE171BCC2A59F6EE00A4D3FC /* main.cpp */; };
 		AE171BCF2A59F6EE00A4D3FC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE171BCC2A59F6EE00A4D3FC /* main.cpp */; };
@@ -2266,6 +2269,19 @@
 		C13C71EA1B3FB4C500F1188D /* DefaultStringSets.h in Headers */ = {isa = PBXBuildFile; fileRef = C13C71E61B3FB4C500F1188D /* DefaultStringSets.h */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AE120D842BCCBEC2001873DD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				AE120D8F2BCCBF51001873DD /* libsteam_api.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		088809F3084C1A5500DC9E4D /* SdlMetaserverClientUi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SdlMetaserverClientUi.cpp; path = ../Source_Files/Network/Metaserver/SdlMetaserverClientUi.cpp; sourceTree = SOURCE_ROOT; };
 		270D534B0FCB417500482ED4 /* OGL_Blitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGL_Blitter.h; sourceTree = "<group>"; };
@@ -2377,6 +2393,8 @@
 		AE120D642BC77645001873DD /* Classic Marathon Steam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Classic Marathon Steam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE120D662BC776CE001873DD /* steamshim_child.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = steamshim_child.c; path = ../Source_Files/Misc/steamshim_child.c; sourceTree = "<group>"; };
 		AE120D682BC776E7001873DD /* steamshim_child.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = steamshim_child.h; path = ../Source_Files/Misc/steamshim_child.h; sourceTree = "<group>"; };
+		AE120D862BCCBEC2001873DD /* Classic Marathon Launcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Classic Marathon Launcher"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE120D902BCCC036001873DD /* Classic Marathon Launcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Classic Marathon Launcher.entitlements"; sourceTree = "<group>"; };
 		AE171BCC2A59F6EE00A4D3FC /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../Source_Files/main.cpp; sourceTree = "<group>"; };
 		AE1F1B912662C5A500E6390E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE1F1B922662C5A500E6390E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = AppStore/Marathon/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -2821,6 +2839,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE120D832BCCBEC2001873DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE120D8D2BCCBECF001873DD /* libsteam_api.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE505CEE141D45E600915344 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2908,6 +2934,7 @@
 				AE505D0B141D45E600915344 /* Classic Marathon 2.app */,
 				AEB4A2AD14296CAE00537AE7 /* Classic Marathon Infinity.app */,
 				AE120D642BC77645001873DD /* Classic Marathon Steam.app */,
+				AE120D862BCCBEC2001873DD /* Classic Marathon Launcher */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2934,6 +2961,7 @@
 		29B97314FDCFA39411CA2CEA /* SDL Application */ = {
 			isa = PBXGroup;
 			children = (
+				AE120D902BCCC036001873DD /* Classic Marathon Launcher.entitlements */,
 				AEA85F5624DF277300BB7827 /* Marathon Infinity.entitlements */,
 				AEA85F5524DF276600BB7827 /* Marathon 2.entitlements */,
 				AEA85F5424DF275300BB7827 /* Marathon.entitlements */,
@@ -4874,6 +4902,23 @@
 			productReference = AE120D642BC77645001873DD /* Classic Marathon Steam.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AE120D852BCCBEC2001873DD /* Classic Marathon Launcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE120D8A2BCCBEC2001873DD /* Build configuration list for PBXNativeTarget "Classic Marathon Launcher" */;
+			buildPhases = (
+				AE120D822BCCBEC2001873DD /* Sources */,
+				AE120D832BCCBEC2001873DD /* Frameworks */,
+				AE120D842BCCBEC2001873DD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Classic Marathon Launcher";
+			productName = "Classic Marathon Launcher";
+			productReference = AE120D862BCCBEC2001873DD /* Classic Marathon Launcher */;
+			productType = "com.apple.product-type.tool";
+		};
 		AE505B3A141D45E600915344 /* Marathon 2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE505D07141D45E600915344 /* Build configuration list for PBXNativeTarget "Marathon 2" */;
@@ -4962,6 +5007,9 @@
 			attributes = {
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					AE120D852BCCBEC2001873DD = {
+						CreatedOnToolsVersion = 15.3;
+					};
 					AE505B3A141D45E600915344 = {
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -5002,6 +5050,7 @@
 				AE505B3A141D45E600915344 /* Marathon 2 */,
 				AEB4A0DA14296CAE00537AE7 /* Marathon Infinity */,
 				AE120B972BC77645001873DD /* Marathon Steam */,
+				AE120D852BCCBEC2001873DD /* Classic Marathon Launcher */,
 			);
 		};
 /* End PBXProject section */
@@ -5454,6 +5503,14 @@
 				AE120D4F2BC77645001873DD /* SDL_ffmpeg.c in Sources */,
 				AE120D502BC77645001873DD /* lbitlib.c in Sources */,
 				AE120D512BC77645001873DD /* lctype.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE120D822BCCBEC2001873DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE120D8E2BCCBED3001873DD /* steamshim_parent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6413,8 +6470,6 @@
 				DEVELOPMENT_TEAM = E8K89CXZE7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					PREFER_APP_NAME_TO_BUNDLE_ID,
-					SCENARIO_IS_BUNDLED,
 					SDL,
 					HAVE_BUNDLE_NAME,
 					HAVE_CONFIG_H,
@@ -6442,8 +6497,6 @@
 				DEVELOPMENT_TEAM = E8K89CXZE7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					PREFER_APP_NAME_TO_BUNDLE_ID,
-					SCENARIO_IS_BUNDLED,
 					SDL,
 					HAVE_BUNDLE_NAME,
 					HAVE_CONFIG_H,
@@ -6458,6 +6511,78 @@
 				PRODUCT_NAME = "Classic Marathon Steam";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AE120D8B2BCCBEC2001873DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "Classic Marathon Launcher.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = E8K89CXZE7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREPROCESSOR_DEFINITIONS = "\"GAME_LAUNCH_NAME=\\\\\\\"Classic Marathon Steam.app/Contents/MacOS/Classic Marathon Steam\\\\\\\"\"";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AE120D8C2BCCBEC2001873DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "Classic Marathon Launcher.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = E8K89CXZE7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "\"GAME_LAUNCH_NAME=\\\\\\\"Classic Marathon Steam.app/Contents/MacOS/Classic Marathon Steam\\\\\\\"\"";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -6935,6 +7060,15 @@
 			buildConfigurations = (
 				AE120D622BC77645001873DD /* Release */,
 				AE120D632BC77645001873DD /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE120D8A2BCCBEC2001873DD /* Build configuration list for PBXNativeTarget "Classic Marathon Launcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE120D8B2BCCBEC2001873DD /* Release */,
+				AE120D8C2BCCBEC2001873DD /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
