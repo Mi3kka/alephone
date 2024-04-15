@@ -21,14 +21,14 @@
 			// Windows Steamshim
 			"FileMapping"
 			{
-				"LocalPath" "VisualStudio/x64/Release/Steam/Steamshim.exe"
+				"LocalPath" "VisualStudio/x64/Release/Steam/Classic Marathon Launcher.exe"
 				"DepotPath" "."
 			}
 
 			// Windows Exe
 			"FileMapping"
 			{
-				"LocalPath" "VisualStudio/x64/Release/Steam/Classic Marathon.exe"
+				"LocalPath" "VisualStudio/x64/Release/Steam/Classic Marathon Steam.exe"
 				"DepotPath" "."
 			}
 
