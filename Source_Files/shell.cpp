@@ -685,7 +685,19 @@ void main_event_loop(void)
 			}
 
 #ifdef HAVE_STEAM
-			while (STEAMSHIM_pump()) {}
+			while (auto steam_event = STEAMSHIM_pump()) {
+				switch (steam_event->type) {
+					case SHIMEVENT_ISOVERLAYACTIVATED:
+						if (steam_event->okay && get_game_state() == _game_in_progress && !game_is_networked)
+						{
+							pause_game();
+						}
+						break;
+
+					default:
+						break;
+				}
+			}
 #endif
 		}
 
@@ -1292,13 +1304,25 @@ static void process_event(const SDL_Event &event)
 		break;
 	
 	case SDL_CONTROLLERBUTTONDOWN:
-		joystick_button_pressed(event.cbutton.which, event.cbutton.button, true);
-		SDL_Event e2;
-		memset(&e2, 0, sizeof(SDL_Event));
-		e2.type = SDL_KEYDOWN;
-		e2.key.keysym.sym = SDLK_UNKNOWN;
-		e2.key.keysym.scancode = (SDL_Scancode)(AO_SCANCODE_BASE_JOYSTICK_BUTTON + event.cbutton.button);
-		process_game_key(e2);
+		if (get_game_state() == _game_in_progress)
+		{
+			if (!get_keyboard_controller_status())
+			{
+				hide_cursor();
+				validate_world_window();
+				set_keyboard_controller_status(true);
+			}
+			else
+			{
+				joystick_button_pressed(event.cbutton.which, event.cbutton.button, true);
+				SDL_Event e2;
+				memset(&e2, 0, sizeof(SDL_Event));
+				e2.type = SDL_KEYDOWN;
+				e2.key.keysym.sym = SDLK_UNKNOWN;
+				e2.key.keysym.scancode = (SDL_Scancode)(AO_SCANCODE_BASE_JOYSTICK_BUTTON + event.cbutton.button);
+				process_game_key(e2);
+			}
+		}
 		break;
 		
 	case SDL_CONTROLLERBUTTONUP:
@@ -1314,7 +1338,8 @@ static void process_event(const SDL_Event &event)
 		break;
 			
 	case SDL_JOYDEVICEREMOVED:
-		joystick_removed(event.jdevice.which);
+		if (joystick_removed(event.jdevice.which) && get_game_state() == _game_in_progress);
+			pause_game();
 		break;
 			
 	case SDL_KEYDOWN:
