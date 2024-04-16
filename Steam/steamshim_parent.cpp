@@ -235,7 +235,8 @@ boost::filesystem::path findChild(const boost::regex& regex)
     boost::filesystem::directory_iterator end;
     for (boost::filesystem::directory_iterator it(cwd); it != end; ++it) {
         auto filename = it->path().filename().string();
-        if (boost::regex_match(filename, regex)) {
+        if (boost::regex_match(filename, regex) &&
+            !boost::regex_match(filename, boost::regex("Classic Marathon Launcher"))) {
             return it->path();
         }
     }
