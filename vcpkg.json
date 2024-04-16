@@ -22,6 +22,9 @@
          "name":"boost-lockfree"
       },
       {
+         "name":"boost-dll"
+      },
+      {
          "name":"sdl2"
       },
       {

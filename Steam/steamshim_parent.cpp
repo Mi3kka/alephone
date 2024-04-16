@@ -1,7 +1,3 @@
-#ifndef GAME_LAUNCH_NAME
-#error Please define your game exe name.
-#endif
-
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN 1
 #include <windows.h>
@@ -20,6 +16,10 @@ typedef pid_t ProcessType;
 typedef int PipeType;
 #define NULLPIPE -1
 #endif
+
+#include <string>
+#include <boost/dll/runtime_symbol_info.hpp>
+#include <boost/regex.hpp>
 
 #include "steam/steam_api.h"
 
@@ -43,6 +43,8 @@ static void closePipe(PipeType fd);
 static bool setEnvVar(const char *key, const char *val);
 static bool launchChild(ProcessType *pid);
 static int closeProcess(ProcessType *pid);
+
+static boost::filesystem::path findChild(const boost::regex& regex);
 
 #ifdef _WIN32
 static void fail(const char *err)
@@ -103,7 +105,8 @@ static bool launchChild(ProcessType *pid)
 {
     STARTUPINFOW si;
     memset(&si, 0, sizeof(si));
-    return (CreateProcessW(TEXT(".\\") TEXT(GAME_LAUNCH_NAME) TEXT(".exe"),
+    auto exe = findChild(boost::regex("Classic Marathon.*\.exe"));
+    return (CreateProcessW(exe.wstring().c_str(),
         NULL, NULL, NULL, TRUE, 0, NULL,
         NULL, &si, pid) != 0);
 } // launchChild
@@ -193,7 +196,15 @@ static bool launchChild(ProcessType *pid)
         return true;  // we'll let the pipe fail if this didn't work.
 
     // we're the child.
-    GArgv[0] = strdup("./" GAME_LAUNCH_NAME);
+#ifdef __APPLE__
+    auto app = findChild(boost::regex("Classic Marathon.*\.app"));
+    auto macos = app / "Contents" / "MacOS";
+    auto bin = boost::filesystem::directory_iterator(macos)->path().string();
+#else
+    auto bin = findChild(boost::regex("Classic Marathon.*"));
+#endif
+    
+    GArgv[0] = strdup(bin.c_str());
     execvp(GArgv[0], GArgv);
     // still here? It failed! Terminate, closing child's ends of the pipes.
     _exit(1);
@@ -218,6 +229,19 @@ int main(int argc, char **argv)
 
 #endif
 
+boost::filesystem::path findChild(const boost::regex& regex)
+{
+    auto cwd = boost::dll::program_location().parent_path();
+    boost::filesystem::directory_iterator end;
+    for (boost::filesystem::directory_iterator it(cwd); it != end; ++it) {
+        auto filename = it->path().filename().string();
+        if (boost::regex_match(filename, regex)) {
+            return it->path();
+        }
+    }
+
+    return cwd;
+}
 
 // THE ACTUAL PROGRAM.
 
