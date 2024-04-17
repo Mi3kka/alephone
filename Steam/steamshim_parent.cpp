@@ -19,7 +19,10 @@ typedef int PipeType;
 
 #include <string>
 #include <boost/dll/runtime_symbol_info.hpp>
+#include <boost/filesystem.hpp>
 #include <boost/regex.hpp>
+
+namespace fs = boost::filesystem;
 
 #include "steam/steam_api.h"
 
@@ -44,7 +47,8 @@ static bool setEnvVar(const char *key, const char *val);
 static bool launchChild(ProcessType *pid);
 static int closeProcess(ProcessType *pid);
 
-static boost::filesystem::path findChild(const boost::regex& regex);
+static fs::path findChild(const boost::regex& regex);
+static fs::path findApp(const boost::regex& regex);
 
 #ifdef _WIN32
 static void fail(const char *err)
@@ -105,7 +109,8 @@ static bool launchChild(ProcessType *pid)
 {
     STARTUPINFOW si;
     memset(&si, 0, sizeof(si));
-    auto exe = findChild(boost::regex("Classic Marathon.*\.exe"));
+    auto exe = findExe(boost::regex("Classic Marathon.*\.exe"));
+    
     return (CreateProcessW(exe.wstring().c_str(),
         NULL, NULL, NULL, TRUE, 0, NULL,
         NULL, &si, pid) != 0);
@@ -197,13 +202,13 @@ static bool launchChild(ProcessType *pid)
 
     // we're the child.
 #ifdef __APPLE__
-    auto app = findChild(boost::regex("Classic Marathon.*\.app"));
+    auto app = findApp(boost::regex("Classic Marathon.*\.app"));
     auto macos = app / "Contents" / "MacOS";
     auto bin = boost::filesystem::directory_iterator(macos)->path().string();
 #else
-    auto bin = findChild(boost::regex("Classic Marathon.*"));
+    auto bin = findExe(boost::regex("Classic Marathon.*"));
 #endif
-    
+
     GArgv[0] = strdup(bin.c_str());
     execvp(GArgv[0], GArgv);
     // still here? It failed! Terminate, closing child's ends of the pipes.
@@ -229,19 +234,44 @@ int main(int argc, char **argv)
 
 #endif
 
-boost::filesystem::path findChild(const boost::regex& regex)
+fs::path findExe(const boost::regex& regex)
 {
-    auto cwd = boost::dll::program_location().parent_path();
-    boost::filesystem::directory_iterator end;
-    for (boost::filesystem::directory_iterator it(cwd); it != end; ++it) {
+    auto this_exe = boost::dll::program_location();
+
+    fs::directory_iterator end;
+    for (fs::directory_iterator it(this_exe.parent_path()); it != end; ++it) {
+        if (it->path() == this_exe) {
+            continue;
+        }
+
         auto filename = it->path().filename().string();
-        if (boost::regex_match(filename, regex) &&
-            !boost::regex_match(filename, boost::regex("Classic Marathon Launcher"))) {
+        if (boost::regex_match(filename, regex)) {
             return it->path();
         }
     }
 
-    return cwd;
+    return fs::path();
+}
+
+fs::path findApp(const boost::regex& regex)
+{
+    auto this_exe = boost::dll::program_location();
+    // Foo.app/Contents/MacOS/foo
+    auto this_app = this_exe.parent_path().parent_path().parent_path();
+    fs::directory_iterator end;
+
+    for (fs::directory_iterator it(this_app.parent_path()); it != end; ++it) {
+        if (it->path() == this_app) {
+            continue;
+        }
+
+        auto filename = it->path().filename().string();
+        if (boost::regex_match(filename, regex)) {
+            return it->path();
+        }
+    }
+
+    return fs::path();
 }
 
 // THE ACTUAL PROGRAM.
