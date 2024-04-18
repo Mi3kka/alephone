@@ -47,7 +47,7 @@ static bool setEnvVar(const char *key, const char *val);
 static bool launchChild(ProcessType *pid);
 static int closeProcess(ProcessType *pid);
 
-static fs::path findChild(const boost::regex& regex);
+static fs::path findExe(const boost::regex& regex);
 static fs::path findApp(const boost::regex& regex);
 
 #ifdef _WIN32
@@ -109,7 +109,7 @@ static bool launchChild(ProcessType *pid)
 {
     STARTUPINFOW si;
     memset(&si, 0, sizeof(si));
-    auto exe = findExe(boost::regex("Classic Marathon.*\.exe"));
+    auto exe = findExe(boost::regex("Classic Marathon.*\\.exe"));
     
     return (CreateProcessW(exe.wstring().c_str(),
         NULL, NULL, NULL, TRUE, 0, NULL,
@@ -202,7 +202,7 @@ static bool launchChild(ProcessType *pid)
 
     // we're the child.
 #ifdef __APPLE__
-    auto app = findApp(boost::regex("Classic Marathon.*\.app"));
+    auto app = findApp(boost::regex("Classic Marathon.*\\.app"));
     auto macos = app / "Contents" / "MacOS";
     auto bin = boost::filesystem::directory_iterator(macos)->path().string();
 #else
