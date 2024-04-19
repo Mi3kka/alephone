@@ -256,15 +256,9 @@ fs::path findExe(const boost::regex& regex)
 fs::path findApp(const boost::regex& regex)
 {
     auto this_exe = boost::dll::program_location();
-    // Foo.app/Contents/MacOS/foo
-    auto this_app = this_exe.parent_path().parent_path().parent_path();
+
     fs::directory_iterator end;
-
-    for (fs::directory_iterator it(this_app.parent_path()); it != end; ++it) {
-        if (it->path() == this_app) {
-            continue;
-        }
-
+    for (fs::directory_iterator it(this_exe.parent_path()); it != end; ++it) {
         auto filename = it->path().filename().string();
         if (boost::regex_match(filename, regex)) {
             return it->path();

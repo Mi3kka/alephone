@@ -3,8 +3,8 @@
         "AppID" "2398450"
         "Desc" "Classic Marathon macOS build script"
 
-        "ContentRoot" "../"
-        "BuildOutput" "output/"
+        "ContentRoot" ".."
+        "BuildOutput" "output\"
 
         "Depots"
         {
@@ -12,9 +12,14 @@
                 {
                         "FileMapping"
                         {
-                                "LocalPath" "PBProjects/build/Release/Classic Marathon Launcher.app/*"
-                                "DepotPath" "Classic Marathon Launcher.app"
-                                "recursive" "1"
+                                "LocalPath" "PBProjects/build/Release/Classic Marathon Launcher"
+                                "DepotPath" "."
+                        }
+
+                        "FileMapping"
+                        {
+                                "LocalPath" "PBProjects/build/Release/libsteam_api.dylib"
+                                "DepotPath" "."
                         }
 
                         "FileMapping"

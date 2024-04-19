@@ -1102,11 +1102,6 @@
 		AE505D16141D46B100915344 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE505D14141D46B100915344 /* InfoPlist.strings */; };
 		AE505D21141D47BF00915344 /* Marathon 2.icns in Resources */ = {isa = PBXBuildFile; fileRef = AE505D20141D47BF00915344 /* Marathon 2.icns */; };
 		AE5154600D46E84A00506B58 /* lua_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE51545D0D46E84A00506B58 /* lua_map.cpp */; };
-		AE5901E32BCF59B300CDAE4D /* steamshim_parent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE120B8F2BC76745001873DD /* steamshim_parent.cpp */; };
-		AE5901E42BCF59BA00CDAE4D /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE120B942BC77447001873DD /* libsteam_api.dylib */; };
-		AE5901E52BCF59C600CDAE4D /* libsteam_api.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AE120B942BC77447001873DD /* libsteam_api.dylib */; };
-		AE5A16B62BCF643B00931FEE /* Steamshim.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE5A16B52BCF643B00931FEE /* Steamshim.plist */; };
-		AE5A16B72BCF647700931FEE /* AlephOne.icns in Resources */ = {isa = PBXBuildFile; fileRef = F53AB44B01F3CB1D01EF2901 /* AlephOne.icns */; };
 		AE601F0B0B927C25009F881C /* Decoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE601F060B927C25009F881C /* Decoder.cpp */; };
 		AE601F0D0B927C25009F881C /* SndfileDecoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE601F080B927C25009F881C /* SndfileDecoder.cpp */; };
 		AE61F16928615A22003128EE /* OpenALManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE61F16428615A21003128EE /* OpenALManager.cpp */; };
@@ -1179,6 +1174,9 @@
 		AE7C21B60BFF67B700CE63EC /* lvm.c in Sources */ = {isa = PBXBuildFile; fileRef = AE7C219A0BFF67B700CE63EC /* lvm.c */; };
 		AE7C21B70BFF67B700CE63EC /* lzio.c in Sources */ = {isa = PBXBuildFile; fileRef = AE7C219B0BFF67B700CE63EC /* lzio.c */; };
 		AE7C21D60BFF688000CE63EC /* Update.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE7C21D50BFF688000CE63EC /* Update.cpp */; };
+		AE8729C82BD1FBF700426095 /* steamshim_parent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE120B8F2BC76745001873DD /* steamshim_parent.cpp */; };
+		AE8729C92BD1FBFA00426095 /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE120B942BC77447001873DD /* libsteam_api.dylib */; };
+		AE8729CD2BD1FDAC00426095 /* libsteam_api.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE120B942BC77447001873DD /* libsteam_api.dylib */; };
 		AE96370C2A39578600DE43FF /* lua_music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE96370B2A39578600DE43FF /* lua_music.cpp */; };
 		AE96370D2A39578600DE43FF /* lua_music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE96370B2A39578600DE43FF /* lua_music.cpp */; };
 		AE96370E2A39578600DE43FF /* lua_music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE96370B2A39578600DE43FF /* lua_music.cpp */; };
@@ -2272,15 +2270,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AE5901E62BCF59C600CDAE4D /* Embed Libraries */ = {
+		AE8729BF2BD1FBEA00426095 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
-			dstSubfolderSpec = 6;
+			dstSubfolderSpec = 16;
 			files = (
-				AE5901E52BCF59C600CDAE4D /* libsteam_api.dylib in Embed Libraries */,
+				AE8729CD2BD1FDAC00426095 /* libsteam_api.dylib in CopyFiles */,
 			);
-			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -2419,9 +2416,7 @@
 		AE51545F0D46E84A00506B58 /* lua_templates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua_templates.h; sourceTree = "<group>"; };
 		AE5604DD086F6DF100D9797C /* network_capabilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = network_capabilities.cpp; path = ../Source_Files/Network/network_capabilities.cpp; sourceTree = SOURCE_ROOT; };
 		AE5604E0086F6E0D00D9797C /* network_capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = network_capabilities.h; path = ../Source_Files/Network/network_capabilities.h; sourceTree = SOURCE_ROOT; };
-		AE5901D32BCF59A400CDAE4D /* Classic Marathon Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Classic Marathon Launcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5A16B42BCF634900931FEE /* Steamshim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steamshim.entitlements; sourceTree = "<group>"; };
-		AE5A16B52BCF643B00931FEE /* Steamshim.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Steamshim.plist; sourceTree = "<group>"; };
 		AE601F060B927C25009F881C /* Decoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Decoder.cpp; sourceTree = "<group>"; };
 		AE601F080B927C25009F881C /* SndfileDecoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SndfileDecoder.cpp; sourceTree = "<group>"; };
 		AE601F100B927C51009F881C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
@@ -2508,6 +2503,7 @@
 		AE7C21D00BFF67FD00CE63EC /* language_definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = language_definition.h; sourceTree = "<group>"; };
 		AE7C21D40BFF686200CE63EC /* Update.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Update.h; path = ../Source_Files/Network/Update.h; sourceTree = "<group>"; };
 		AE7C21D50BFF688000CE63EC /* Update.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Update.cpp; path = ../Source_Files/Network/Update.cpp; sourceTree = "<group>"; };
+		AE8729C12BD1FBEA00426095 /* Classic Marathon Launcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Classic Marathon Launcher"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE941DE713E783F30077218A /* Info-AlephOne-Xcode4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-AlephOne-Xcode4.plist"; sourceTree = "<group>"; };
 		AE96370A2A39577800DE43FF /* lua_music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lua_music.h; sourceTree = "<group>"; };
 		AE96370B2A39578600DE43FF /* lua_music.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_music.cpp; sourceTree = "<group>"; };
@@ -2862,11 +2858,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE5901D02BCF59A400CDAE4D /* Frameworks */ = {
+		AE8729BE2BD1FBEA00426095 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5901E42BCF59BA00CDAE4D /* libsteam_api.dylib in Frameworks */,
+				AE8729C92BD1FBFA00426095 /* libsteam_api.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2938,7 +2934,7 @@
 				AE505D0B141D45E600915344 /* Classic Marathon 2.app */,
 				AEB4A2AD14296CAE00537AE7 /* Classic Marathon Infinity.app */,
 				AE120D642BC77645001873DD /* Classic Marathon Steam.app */,
-				AE5901D32BCF59A400CDAE4D /* Classic Marathon Launcher.app */,
+				AE8729C12BD1FBEA00426095 /* Classic Marathon Launcher */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2983,7 +2979,6 @@
 			isa = PBXGroup;
 			children = (
 				AE941DE713E783F30077218A /* Info-AlephOne-Xcode4.plist */,
-				AE5A16B52BCF643B00931FEE /* Steamshim.plist */,
 				AE0E4EC0141D144000AAA02F /* Marathon */,
 				AE505D0F141D466F00915344 /* Marathon 2 */,
 				AEB4A2B114296D8800537AE7 /* Marathon Infinity */,
@@ -4927,14 +4922,13 @@
 			productReference = AE505D0B141D45E600915344 /* Classic Marathon 2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AE5901D22BCF59A400CDAE4D /* Classic Marathon Launcher */ = {
+		AE8729C02BD1FBEA00426095 /* Classic Marathon Launcher */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE5901E02BCF59A500CDAE4D /* Build configuration list for PBXNativeTarget "Classic Marathon Launcher" */;
+			buildConfigurationList = AE8729C52BD1FBEA00426095 /* Build configuration list for PBXNativeTarget "Classic Marathon Launcher" */;
 			buildPhases = (
-				AE5901CF2BCF59A400CDAE4D /* Sources */,
-				AE5901D02BCF59A400CDAE4D /* Frameworks */,
-				AE5901D12BCF59A400CDAE4D /* Resources */,
-				AE5901E62BCF59C600CDAE4D /* Embed Libraries */,
+				AE8729BF2BD1FBEA00426095 /* CopyFiles */,
+				AE8729BD2BD1FBEA00426095 /* Sources */,
+				AE8729BE2BD1FBEA00426095 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -4942,8 +4936,8 @@
 			);
 			name = "Classic Marathon Launcher";
 			productName = "Classic Marathon Launcher";
-			productReference = AE5901D32BCF59A400CDAE4D /* Classic Marathon Launcher.app */;
-			productType = "com.apple.product-type.application";
+			productReference = AE8729C12BD1FBEA00426095 /* Classic Marathon Launcher */;
+			productType = "com.apple.product-type.tool";
 		};
 		AEB4A0DA14296CAE00537AE7 /* Marathon Infinity */ = {
 			isa = PBXNativeTarget;
@@ -5020,7 +5014,7 @@
 							};
 						};
 					};
-					AE5901D22BCF59A400CDAE4D = {
+					AE8729C02BD1FBEA00426095 = {
 						CreatedOnToolsVersion = 15.3;
 					};
 					AEB4A0DA14296CAE00537AE7 = {
@@ -5056,7 +5050,7 @@
 				AE505B3A141D45E600915344 /* Marathon 2 */,
 				AEB4A0DA14296CAE00537AE7 /* Marathon Infinity */,
 				AE120B972BC77645001873DD /* Marathon Steam */,
-				AE5901D22BCF59A400CDAE4D /* Classic Marathon Launcher */,
+				AE8729C02BD1FBEA00426095 /* Classic Marathon Launcher */,
 			);
 		};
 /* End PBXProject section */
@@ -5097,15 +5091,6 @@
 				AE505C0B141D45E600915344 /* SaveIcon.icns in Resources */,
 				AE505D16141D46B100915344 /* InfoPlist.strings in Resources */,
 				AE505D21141D47BF00915344 /* Marathon 2.icns in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE5901D12BCF59A400CDAE4D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE5A16B72BCF647700931FEE /* AlephOne.icns in Resources */,
-				AE5A16B62BCF643B00931FEE /* Steamshim.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5748,11 +5733,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE5901CF2BCF59A400CDAE4D /* Sources */ = {
+		AE8729BD2BD1FBEA00426095 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5901E32BCF59B300CDAE4D /* steamshim_parent.cpp in Sources */,
+				AE8729C82BD1FBF700426095 /* steamshim_parent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6878,13 +6863,11 @@
 			};
 			name = Debug;
 		};
-		AE5901E12BCF59A500CDAE4D /* Release */ = {
+		AE8729C62BD1FBEA00426095 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -6897,8 +6880,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = Steamshim.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = E8K89CXZE7;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -6908,35 +6889,20 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Steamshim.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.bungie.source.Steamshim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
-		AE5901E22BCF59A500CDAE4D /* Debug */ = {
+		AE8729C72BD1FBEA00426095 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -6949,8 +6915,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = Steamshim.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = E8K89CXZE7;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -6964,25 +6928,12 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Steamshim.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.bungie.source.Steamshim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Debug;
 		};
@@ -7124,11 +7075,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE5901E02BCF59A500CDAE4D /* Build configuration list for PBXNativeTarget "Classic Marathon Launcher" */ = {
+		AE8729C52BD1FBEA00426095 /* Build configuration list for PBXNativeTarget "Classic Marathon Launcher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE5901E12BCF59A500CDAE4D /* Release */,
-				AE5901E22BCF59A500CDAE4D /* Debug */,
+				AE8729C62BD1FBEA00426095 /* Release */,
+				AE8729C72BD1FBEA00426095 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
