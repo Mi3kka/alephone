@@ -18,6 +18,12 @@
 				"recursive" "1"
 			}
 
+                        "FileExclusion" "*.git" 
+                 }
+
+                 // Windows executables
+                 "2398452"
+                 {
 			// Windows Steamshim
 			"FileMapping"
 			{
@@ -38,8 +44,6 @@
 				"LocalPath" "VisualStudio/x64/Release/Steam/steam_api64.dll"
 				"DepotPath" "."
 			}
-
-			"FileExclusion" "*.git"
 		}
 	}
 }
