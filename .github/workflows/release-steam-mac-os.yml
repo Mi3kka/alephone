@@ -114,8 +114,6 @@ jobs:
 
         echo "Notarize Classic Marathon Launcher"
         xcrun notarytool submit "launcher.zip" --keychain-profile "notarytool-profile" --wait
-        echo "Attach staple"
-        xcrun stapler staple "$GITHUB_WORKSPACE/PBProjects/build/Release/Classic Marathon Launcher"
 
     - name: Deploy to Steam
       run: ./Steam/steamcmd/steamcmd.sh +login alephone_upload +run_app_build ../m1_mac.vdf +quit
