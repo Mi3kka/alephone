@@ -215,7 +215,7 @@ static uint16 network_gather_remote_hub()
 			const auto& remote_hub = remote_hub_latency.second;
 			const auto latency = remote_hub_latency.first;
 
-			if (latency > hub_get_minimum_send_period() * 33) continue;
+			if (hub_get_minimum_send_period() && latency > hub_get_minimum_send_period() * 33) continue;
 
 			if (NetConnectRemoteHub(remote_hub.address()))
 			{
