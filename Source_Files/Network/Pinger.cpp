@@ -4,6 +4,7 @@
 #include "network_private.h"
 #include "network_star.h"
 #include "crc.h"
+#include "mytm.h"
 #include <AStream.h>
 
 uint16_t Pinger::Register(const IPaddress& ipv4)
@@ -39,13 +40,19 @@ void Pinger::Ping(uint8_t number_of_tries)
 
 			ping_packet->data_size = ops.tellp();
 
-			for (int i = 0; i < number_of_tries; i++)
+			if (take_mytm_mutex())
 			{
-				if (NetDDPSendFrame(ping_packet, &address.ipv4, kPROTOCOL_TYPE, 0) == 0 && !address.ping_sent_tick)
+				for (int i = 0; i < number_of_tries; i++)
 				{
-					address.ping_sent_tick = machine_tick_count();
+					if (NetDDPSendFrame(ping_packet, &address.ipv4, kPROTOCOL_TYPE, 0) == 0 && !address.ping_sent_tick)
+					{
+						address.ping_sent_tick = machine_tick_count();
+					}
 				}
+
+				release_mytm_mutex();
 			}
+
 		}
 		catch (...) {}
 
