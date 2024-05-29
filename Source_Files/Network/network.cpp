@@ -543,6 +543,10 @@ void Client::handleJoinerInfoMessage(JoinerInfoMessage* joinerInfoMessage, Commu
 
 void Client::handleCapabilitiesMessage(CapabilitiesMessage* capabilitiesMessage, CommunicationsChannel * channel)
 {
+#ifdef A1_NETWORK_STANDALONE_HUB
+	if (state == _disconnect) return;
+#endif
+
 	if (state == _awaiting_capabilities) {
 		capabilities = *capabilitiesMessage->capabilities();
 		
